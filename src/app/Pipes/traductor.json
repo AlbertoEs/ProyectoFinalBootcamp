@@ -1,0 +1,10 @@
+{
+  "spanish": {
+    "home": "inicio",
+    "characters": "personajes"
+  },
+  "english": {
+    "home": "home",
+    "characters": "characters"
+  }
+}
