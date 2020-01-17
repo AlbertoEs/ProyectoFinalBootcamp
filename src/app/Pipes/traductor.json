@@ -1,10 +1,38 @@
 {
   "spanish": {
     "home": "inicio",
-    "characters": "personajes"
+    "characters": "personajes",
+    "houses": "casas",
+    "chronology": "cronología",
+    "house": "casa",
+    "appearances": "apariciones",
+    "father": "padre",
+    "decendents": "descendientes",
+    "titles": "títulos",
+    "search": "buscar",
+    "motto": "lema",
+    "campus": "sede",
+    "region": "región",
+    "alliances": "alianzas",
+    "religion": "religión",
+    "foundation": "fundación"
   },
   "english": {
     "home": "home",
-    "characters": "characters"
+    "characters": "characters",
+    "houses": "houses",
+    "chronology": "chronology",
+    "house": "house",
+    "appearances": "appearances",
+    "father": "father",
+    "decendents": "decendents",
+    "titles": "titles",
+    "search": "search",
+    "motto": "motto",
+    "campus": "campus",
+    "region": "region",
+    "alliances": "alliances",
+    "religion": "religion",
+    "foundation": "foundation"
   }
 }
