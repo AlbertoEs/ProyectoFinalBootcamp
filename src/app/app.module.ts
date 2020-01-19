@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './Components/home/home.component';
+import { SimplebarAngularModule } from 'simplebar-angular';
 import { TraductorPipe } from './Pipes/traductor.pipe';
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TraductorPipe } from './Pipes/traductor.pipe';
   ],
   imports: [
     BrowserModule,
+    SimplebarAngularModule,
     AppRoutingModule
   ],
   providers: [],
