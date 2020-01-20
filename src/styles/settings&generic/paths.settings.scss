@@ -1,8 +1,7 @@
 //******************************************************************************
-//  #A ELEMENT
+//  #PATHS FOR PROJECT
+//  Paths from styles folder
 //******************************************************************************
 
-a {
-  color: $color--primary;
-  text-transform: none;
-}
+$font-path: "../../assets/fonts/";
+$img-path: "../assets/img/";

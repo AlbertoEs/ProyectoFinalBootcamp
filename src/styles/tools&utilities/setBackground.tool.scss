@@ -1,0 +1,5 @@
+@mixin setBackground($url, $attachment) {
+    background-image: url($url);
+    background-attachment: $attachment;
+    background-size: cover;
+}

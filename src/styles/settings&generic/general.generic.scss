@@ -1,0 +1,19 @@
+//*********************************************************************************
+//  GENERAL Styles: Styles for all project
+//*********************************************************************************
+html {
+    font-size: $font-size--16;
+    color: $color-grey-15;
+    background-color: $color-grey-90;
+    min-height: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: 'robotto', arial;
+    position: relative;
+    width: 100%;
+}
+
+body {
+    margin: none;
+    padding: none;
+}

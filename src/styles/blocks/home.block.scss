@@ -1,0 +1,10 @@
+.b-home {
+    @include setBackground($img-path + "thronex3.png", fixed);
+
+    top: 0;
+    bottom: 0;
+
+    position: absolute;
+
+    width: 100%;
+}
