@@ -1,12 +1,11 @@
-import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from "@angular/core";
 
 @Pipe({
-  name: 'traductor'
+	name: 'traductor'
 })
 export class TraductorPipe implements PipeTransform {
 
-  transform(value: any, ...args: any[]): any {
+	transform(value: any, ...args: any[]): any {
 
-  }
-
+	}
 }
