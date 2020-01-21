@@ -1,0 +1,9 @@
+@font-face {
+    font-family: game-of-font;
+    src: url($font-path + "GameOfFont/gameOfFont.ttf"),
+        url($font-path + "GameOfFont/gameOfFont.eot?#iefix") format('embedded-opentype'), /* IE6-IE8 */
+        url($font-path + "GameOfFont/gameOfFont.woff") format('woff'), /* Pretty Modern Browsers */
+        url($font-path + "GameOfFont/gameOfFont.svg") format('svg'); /* Legacy iOS */
+
+    font-style: normal;
+}
