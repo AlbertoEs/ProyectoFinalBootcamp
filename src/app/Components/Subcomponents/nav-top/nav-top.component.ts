@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ConstantsService } from 'src/app/Providers/constants/constants.service';
+import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-nav-top',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavTopComponent implements OnInit {
 
-  constructor() { }
+    @Input() showFilter: boolean = true;
+    @Input() showTotalFilter: boolean = true;
+    @Input() showReturnIcon: boolean = true;
+    @Input() showHomeIcon: boolean = true;
 
-  ngOnInit() {
-  }
+    public filterForm: FormGroup = new FormGroup({
+        searchFilter: new FormControl(''),
+        homeFilter: new FormControl(''),
+        ageFilter: new FormControl('')
+    });
+
+    constructor(private formBuilder: FormBuilder, 
+                public constants: ConstantsService ) { }
+
+    public ngOnInit() {
+        //this.buildForm();
+    }
 
 }

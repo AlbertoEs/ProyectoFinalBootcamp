@@ -1,0 +1,28 @@
+.b-nav-top {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__left {
+        float: left;
+        text-align: left;
+        width: 100%;
+
+        @media screen and (min-width: $break-md) {
+            width: 50%;
+        }
+    }
+
+    &__right {
+        float: right;
+        text-align: right;
+        width: 100%;
+
+        @media screen and (min-width: $break-md) {
+            width: 50%;
+        }
+    }
+
+    &__form-component {
+        width: 100%;
+    }
+}

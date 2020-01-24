@@ -1,6 +1,7 @@
 {
   "spanish": {
     "home": "inicio",
+    "age": "edad",
     "characters": "personajes",
     "houses": "casas",
     "chronology": "cronología",
@@ -19,6 +20,7 @@
   },
   "english": {
     "home": "home",
+    "age": "age",
     "characters": "characters",
     "houses": "houses",
     "chronology": "chronology",

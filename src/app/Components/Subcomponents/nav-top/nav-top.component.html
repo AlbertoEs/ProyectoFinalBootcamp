@@ -1,3 +1,56 @@
 <div class="b-nav-top">
-    
+
+    <!-- NAV TOP - LEFT PART -->
+    <div class="b-nav-top__left">
+        <a href="#" class="b-nav-top__return" *ngIf="showReturnIcon"><i class="icon-arrow-left"></i></a>
+
+        <form class="b-nav-top__filter" *ngIf="showFilter" [formGroup]="filterForm">
+
+            <div class="b-nav-top__form-component">
+                <label class="b-label" for="searchFilter"><i class="icon-search"></i></label>
+                <input class="b-input" name="searchFilter" formControlName="searchFilter" id="searchFilter"
+                    placeholder="{{ 'search' | traductor: constants.Capitalized }}..." type="text" />
+            </div>
+
+            <div *ngIf="showTotalFilter">
+
+                <div class="b-nav-top__form-component">
+                    <!--<label class="b-label b-label--100" for="homeFilter">{{ 'house' | traductor: constants.Capitalized }}</label>-->
+                    <input class="b-input" name="homeFilter" formControlName="homeFilter" id="homeFilter"
+                        placeholder="{{ 'house' | traductor: constants.Capitalized }}" type="text" />
+                </div>
+
+                <div class="b-nav-top__form-component">
+                    <!--<label class="b-label b-label--100" for="ageFilter">{{ 'age' | traductor: constants.Capitalized }}</label>-->
+                    <input class="b-input" name="ageFilter" id="ageFilter" formControlName="ageFilter"
+                        placeholder="{{ 'age' | traductor: constants.Capitalized }}" type="text" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <!-- NAV TOP - RIGHT PART -->
+    <div class="b-nav-top__right">
+        <a href="#" class="b-nav-top__home" *ngIf="showHomeIcon"><span class="b-nav-top__homeico icon-home"></span></a>
+
+        <a href="#" class="b-nav-top__english"><span class="b-nav-top__englishico icon-united-kingdom"><span
+                    class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                    class="path4"></span></span>
+        </a>
+
+        <a href="#" class="b-nav-top__spanish"><span class="b-nav-topspanishico icon-spain"><span
+                    class="path1"></span><span class="path2"></span><span class="path3"></span><span
+                    class="path4"></span><span class="path5"></span><span class="path6"></span><span
+                    class="path7"></span><span class="path8"></span><span class="path9"></span><span
+                    class="path10"></span><span class="path11"></span><span class="path12"></span><span
+                    class="path13"></span><span class="path14"></span><span class="path15"></span><span
+                    class="path16"></span><span class="path17"></span><span class="path18"></span><span
+                    class="path19"></span><span class="path20"></span><span class="path21"></span><span
+                    class="path22"></span><span class="path23"></span><span class="path24"></span><span
+                    class="path25"></span><span class="path26"></span><span class="path27"></span><span
+                    class="path28"></span><span class="path29"></span><span class="path30"></span></span>
+        </a>
+    </div>
+
 </div>
