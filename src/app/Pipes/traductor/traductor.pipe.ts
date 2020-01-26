@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from "@angular/core";
 import jsonTraductor from './traductor.json';
-import { LanguageCookieService } from '../Providers/languageCookie/language-cookie.service.js';
-import { ConstantsService } from '../Providers/constants/constants.service.js';
+import { LanguageCookieService } from '../../Providers/languageCookie/language-cookie.service.js';
+import { ConstantsService } from '../../Providers/constants/constants.service.js';
 import { TitleCasePipe } from '@angular/common';
 
 @Pipe({

@@ -1,6 +1,10 @@
 //*********************************************************************************
 //  GENERAL Styles: Styles for all project
 //*********************************************************************************
+* {
+    color: $color-grey-95;
+}
+
 html {
     font-size: $font-size--16;
     color: $color-grey-15;
@@ -19,5 +23,10 @@ body {
 }
 
 a {
-    text-decoration: none;
+    color: $color-grey-95;
+    text-decoration: none !important;
+}
+a:hover {
+    color: $color-grey-80;
+    text-decoration: none !important;
 }

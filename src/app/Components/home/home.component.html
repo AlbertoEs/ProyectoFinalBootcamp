@@ -1,17 +1,15 @@
 <section class="b-home">
 
-    <div class="container">
+    <div class="container b-home__container">
 
-        <app-nav-top></app-nav-top>
+        <app-nav-top [showFilter]='false' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='false'></app-nav-top>
+
+        <div class="b-home__jumbotron">
+            <h1 class="b-home__title">Game of Thrones</h1>
+        </div>
+
+        <app-nav-bottom></app-nav-bottom>
         
     </div>
 
 </section>
-
-
-
-<!-- <ngx-simplebar [options]="options" style="height: 500px; border: 1px solid;">
-    <div *ngFor="let number of numbers">
-        <div style="height: 50px; background-color:aquamarine;">ngx-simplebar</div>
-    </div>
-</ngx-simplebar> -->

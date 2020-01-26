@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 
 @Component({
   selector: 'app-nav-bottom',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavBottomComponent implements OnInit {
 
-  constructor() { }
+  constructor(public constants: ConstantsService) { }
 
   ngOnInit() {
   }

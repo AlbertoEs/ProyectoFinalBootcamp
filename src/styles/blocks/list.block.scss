@@ -1,0 +1,20 @@
+.b-list {
+    background-color: $color-black;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    &__container {
+        height: 100%;
+    }
+
+    &__main {
+        display: flex;
+
+        height: 80%;
+
+        font-family: "gameOfThrones";
+    }
+}
