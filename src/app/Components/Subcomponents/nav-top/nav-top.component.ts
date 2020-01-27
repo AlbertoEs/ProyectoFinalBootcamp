@@ -10,10 +10,10 @@ import { LanguageCookieService } from 'src/app/Providers/languageCookie/language
 })
 export class NavTopComponent implements OnInit {
 
-    @Input() showFilter: boolean = false;
+    @Input() showFilter: boolean = true;
     @Input() showTotalFilter: boolean = false;
-    @Input() showReturnIcon: boolean = false;
-    @Input() showHomeIcon: boolean = false;
+    @Input() showReturnIcon: boolean = true;
+    @Input() showHomeIcon: boolean = true;
 
     public filterForm: FormGroup = new FormGroup({
         searchFilter: new FormControl(''),

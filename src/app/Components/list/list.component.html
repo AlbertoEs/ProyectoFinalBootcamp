@@ -5,17 +5,15 @@
         <app-nav-top [showFilter]='true' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true'></app-nav-top>
 
         <div class="b-list__main">
-            <ngx-simplebar [options]="options">
+            <ngx-simplebar class="b-list__scroll">
 
                 <div class="row">
-                    <div *ngFor="let element of elementsList">
+                    <div class="col-6 col-sm-4 col-md-3 col-xl-2 b-list__img-div" *ngFor="let element of elementsList">
 
-                        <div class="col-6 col-sm-2 b-list__img-div">
-                            <figure class="b-list__figure">
-                                <img class="b-list__img" src="{{element.image}}" alt="{{element.name}}">
-                                <figcaption>{{element.name}}</figcaption>
-                            </figure>
-                        </div>
+                        <figure class="b-list__figure">
+                            <img class="b-list__img" src="{{element.image}}" alt="{{element.name}}">
+                            <figcaption class="b-list__figcaption">{{element.name}}</figcaption>
+                        </figure>
 
                     </div>
                 </div>

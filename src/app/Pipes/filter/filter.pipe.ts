@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { isNullOrUndefined } from 'util';
 
 @Pipe({
   name: 'filter'
@@ -10,7 +11,7 @@ export class FilterPipe implements PipeTransform {
 
     const valueToFilter = args['valueToFilter'];
 
-    if (valueToFilter !== null) {
+    if (!isNullOrUndefined(valueToFilter)) {
       for (let i = 0; i < originalArray.length; i++) {
 
         // Convierto a JSON el objeto

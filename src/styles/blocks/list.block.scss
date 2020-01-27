@@ -17,4 +17,45 @@
 
         font-family: "gameOfThrones";
     }
+
+    &__scroll {
+        height: 100%;
+        width: 100%;
+
+        & .simplebar-content-wrapper {
+            overflow-x: hidden !important;
+        }
+    }
+
+    &__figure {
+        height: 320px;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        @media screen and (min-width: $break-xl) { // 1200 en adelante
+            height: 220px;
+        }
+    }
+
+    &__img-div {
+        margin-bottom: 60px;
+    }
+
+    &__img {
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+
+    &__figcaption {
+        height: 40px;
+
+        bottom: 0;
+        position: absolute;
+    }
 }

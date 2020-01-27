@@ -12,8 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'characters',
-    component: ListComponent,
-    data: { typeOfList: 'CHARACTERS' }
+    component: ListComponent
   },
   {
     path: '',
