@@ -15,6 +15,10 @@ const routes: Routes = [
     component: ListComponent
   },
   {
+    path: 'houses',
+    component: ListComponent
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full'

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LanguageCookieService } from 'src/app/Providers/languageCookie/language-cookie.service';
@@ -15,11 +15,16 @@ export class NavTopComponent implements OnInit {
     @Input() showReturnIcon: boolean = true;
     @Input() showHomeIcon: boolean = true;
 
-    public filterForm: FormGroup = new FormGroup({
+    @Output() outSearchFilter = new EventEmitter<string>();
+    @Output() outHomeFilter = new EventEmitter<string>();
+    @Output() outAgeFilter = new EventEmitter<string>();
+
+    public filterForm = new FormGroup({
         searchFilter: new FormControl(''),
         homeFilter: new FormControl(''),
         ageFilter: new FormControl('')
     });
+    
 
     constructor(private formBuilder: FormBuilder, 
                 public constants: ConstantsService,
@@ -27,6 +32,13 @@ export class NavTopComponent implements OnInit {
 
     public ngOnInit() {
         //this.buildForm();
+        this.onChangeFilter();
+    }
+
+    onChangeFilter() {
+        this.filterForm.valueChanges.subscribe(val => {
+            this.outSearchFilter.emit(val.searchFilter)
+        });
     }
 
     // Traductor

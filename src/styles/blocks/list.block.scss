@@ -37,6 +37,13 @@
         flex-direction: column;
         width: 100%;
 
+        &:hover {
+            & .b-list__figcaption {
+                opacity: 1;
+                background-color: rgba($color: $color-black, $alpha: .5);
+            }
+        }
+
         @media screen and (min-width: $break-xl) { // 1200 en adelante
             height: 220px;
         }
@@ -52,8 +59,18 @@
         width: 100%;
     }
 
+
+
     &__figcaption {
+        opacity: 0;
+        background-color: rgba($color: $color-black, $alpha: .1);
+        font-size: 14px;
+        text-align: center;
         height: 40px;
+        padding-top: 10px;
+        width: 100%;
+
+        transition: 0.3s;
 
         bottom: 0;
         position: absolute;

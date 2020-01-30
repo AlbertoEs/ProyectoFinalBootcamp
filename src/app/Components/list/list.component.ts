@@ -3,6 +3,7 @@ import { ConstantsService } from 'src/app/Providers/constants/constants.service'
 import { CharactersService } from 'src/app/Providers/characters/characters.service';
 import { FilterPipe } from 'src/app/Pipes/filter/filter.pipe';
 import { Router } from '@angular/router';
+import { HousesService } from 'src/app/Providers/houses/houses.service';
 
 @Component({
   selector: 'app-list',
@@ -16,6 +17,7 @@ export class ListComponent implements OnInit {
 
   constructor(public consts: ConstantsService,
               private characterService: CharactersService,
+              private housesService: HousesService,
               private filter: FilterPipe,
               private router: Router) 
   {
@@ -26,10 +28,11 @@ export class ListComponent implements OnInit {
   }
 
 
-
   ngOnInit() {
     if (this.typeOfList === this.consts.Characters) {
       this.getCharacters(null);
+    } else if (this.typeOfList === this.consts.Houses) {
+      this.getHouses(null);
     }
   }
 
@@ -43,6 +46,19 @@ export class ListComponent implements OnInit {
 
   }
 
+  onOutSearchFilter(searchFilter: string) {
+    console.log(searchFilter);
+  }
 
+
+  getHouses(filter: string) {
+
+    this.housesService.getData().subscribe(
+      (data) => {
+        this.elementsList = this.filter.transform(data, filter);
+      }   
+    );
+
+  }
 
 }
