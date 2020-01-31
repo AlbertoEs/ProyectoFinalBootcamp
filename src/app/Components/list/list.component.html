@@ -2,7 +2,7 @@
 
     <div class="container b-list__container">
 
-        <app-nav-top [showFilter]='true' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true'></app-nav-top>
+        <app-nav-top [showFilter]='true' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true' (changeFilter)='getFilterValues($event)'></app-nav-top>
 
         <div class="b-list__main">
             <ngx-simplebar class="b-list__scroll">

@@ -29,14 +29,23 @@ export class ListComponent implements OnInit {
 
 
   ngOnInit() {
+    this.drawElements(null);
+  }
+
+  getFilterValues(filter: any) {
+    console.log(filter);
+    this.drawElements(filter);
+  }
+
+  drawElements (filter: any) {
     if (this.typeOfList === this.consts.Characters) {
-      this.getCharacters(null);
+      this.getCharacters(filter);
     } else if (this.typeOfList === this.consts.Houses) {
-      this.getHouses(null);
+      this.getHouses(filter);
     }
   }
 
-  getCharacters(filter: string) {
+  getCharacters(filter: any) {
 
     this.characterService.getData().subscribe(
       (data) => {
@@ -46,12 +55,8 @@ export class ListComponent implements OnInit {
 
   }
 
-  onOutSearchFilter(searchFilter: string) {
-    console.log(searchFilter);
-  }
 
-
-  getHouses(filter: string) {
+  getHouses(filter: any) {
 
     this.housesService.getData().subscribe(
       (data) => {

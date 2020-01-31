@@ -6,18 +6,13 @@ import { isNullOrUndefined } from 'util';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(originalArray: any[], ...args: any[]): any {
+  transform(originalArray: any[], args: any[]): any {
     let returnArray: any[] = [];
 
-    interface IElement {
-      name: string;
-      image: number;
-    }
+    let valueToFilter = '';
 
-    let valueToFilter = args['valueToFilter'];
-
-    if (isNullOrUndefined(valueToFilter))
-      valueToFilter = '';
+    if (!isNullOrUndefined(args) && !isNullOrUndefined(args['searchFilter']))
+      valueToFilter = args['searchFilter'];
 
     for (let i = 0; i < originalArray.length; i++) {
 
@@ -34,27 +29,33 @@ export class FilterPipe implements PipeTransform {
 
   filterJson(object: any, valueToFilter: string) {
 
-    let objectReturn = null;
+    interface IElement {
+      name: string;
+      image: string;
+    }
 
-    // Convierto a JSON el objeto
-    let objectString = JSON.stringify(object);
+    let objectReturn: IElement = {
+      name: object.name,
+      image: this.getImage(object)
+    }
 
-    if (objectString.indexOf(valueToFilter) !== -1) {
+    if (objectReturn.name.toLowerCase().indexOf(valueToFilter.toLowerCase()) === -1) {
+      // El objeto NO concuerda con el filtro
 
-      let image = '../../../assets/img/escudo-espania.png';
-      if (!isNullOrUndefined(object.logoURL))
-        image = object.logoURL;
-      else if (!isNullOrUndefined(object.image))
-        image = object.image;
-
-      let element: IElement = {
-        name: object.name,
-        image: image
-      }
-
-      objectReturn = element;
+      objectReturn = null;
     }
 
     return objectReturn;
+  }
+
+  getImage(object: any) {
+
+    let image = '../../../assets/img/escudo-espania.png';
+    if (!isNullOrUndefined(object.logoURL))
+      image = object.logoURL;
+    else if (!isNullOrUndefined(object.image))
+      image = object.image;
+
+    return image;
   }
 }
