@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { isNullOrUndefined } from 'util';
 
 @Injectable({
   providedIn: 'root'
@@ -11,8 +12,14 @@ export class CharactersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getData(): Observable<any> {
-    let observable: Observable<any> = this.httpClient.get(this.apiUrl);
+  getData(param: string = null): Observable<any> {
+    let observable: Observable<any>;
+
+    if (!isNullOrUndefined(param))
+      this.apiUrl.concat('/' + param);
+
+    observable = this.httpClient.get(this.apiUrl);
+    
     return observable;   
   }
 }

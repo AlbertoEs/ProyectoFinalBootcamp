@@ -1,0 +1,33 @@
+<div class="b-details">
+
+    <app-nav-top [showFilter]='false' [showTotalFilter]='false' [showReturnIcon]='true' [showHomeIcon]='true'></app-nav-top>
+
+    <div class="b-details__image">
+        <div class="b-details__name">{{ detailsTitle }}</div>
+    </div>
+
+    <div class="b-details__info row">
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title1 | traductor: constants.Capitalized }}</h2>
+
+            <ul class="b-details__column-content">
+                <li class="b-details__content-element" *ngFor="let element of colContent.content1">{{ element }}</li>
+            </ul>
+        </div>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title2 | traductor: constants.Capitalized }}</h2>
+        </div>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title3 | traductor: constants.Capitalized }}</h2>
+        </div>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title4 | traductor: constants.Capitalized }}</h2>
+        </div>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title5 | traductor: constants.Capitalized }}</h2>
+        </div>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ colTitles.title6 | traductor: constants.Capitalized }}</h2>
+        </div>
+    </div>
+</div>

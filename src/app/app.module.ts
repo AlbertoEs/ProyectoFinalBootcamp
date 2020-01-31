@@ -16,6 +16,8 @@ import { TitleCasePipe } from '@angular/common';
 import { ListComponent } from './Components/list/list.component';
 import { FilterPipe } from './Pipes/filter/filter.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { DetailsComponent } from './Components/details/details.component';
+import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NavBottomComponent,
     TraductorPipe,
     FilterPipe,
-    ListComponent
+    ListComponent,
+    DetailsComponent,
+    ObjectUnifierPipe
   ],
   imports: [
     HttpClientModule,

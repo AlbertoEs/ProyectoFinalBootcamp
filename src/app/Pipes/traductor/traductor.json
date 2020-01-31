@@ -11,11 +11,12 @@
     "decendents": "descendientes",
     "titles": "títulos",
     "search": "buscar",
-    "motto": "lema",
-    "campus": "sede",
+    "sigil": "lema",
+    "seat": "sede",
     "region": "región",
-    "alliances": "alianzas",
+    "allegiances": "alianzas",
     "religion": "religión",
+    "religions": "religiones",
     "foundation": "fundación"
   },
   "english": {
@@ -30,11 +31,12 @@
     "decendents": "decendents",
     "titles": "titles",
     "search": "search",
-    "motto": "motto",
-    "campus": "campus",
+    "sigil": "sigil",
+    "seat": "seat",
     "region": "region",
-    "alliances": "alliances",
+    "allegiances": "allegiances",
     "religion": "religion",
+    "religions": "religions",
     "foundation": "foundation"
   }
 }
