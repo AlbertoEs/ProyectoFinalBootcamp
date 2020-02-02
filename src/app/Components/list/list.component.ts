@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { CharactersService } from 'src/app/Providers/characters/characters.service';
 import { FilterPipe } from 'src/app/Pipes/filter/filter.pipe';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class ListComponent implements OnInit {
               private characterService: CharactersService,
               private housesService: HousesService,
               private filter: FilterPipe,
-              private router: Router) 
+              public router: Router) 
   {
     if (this.router.url.indexOf('characters') !== -1) 
       this.typeOfList = consts.Characters;

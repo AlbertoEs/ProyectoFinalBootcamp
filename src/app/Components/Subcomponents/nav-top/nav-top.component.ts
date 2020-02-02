@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LanguageCookieService } from 'src/app/Providers/languageCookie/language-cookie.service';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-nav-top',
@@ -10,10 +11,10 @@ import { LanguageCookieService } from 'src/app/Providers/languageCookie/language
 })
 export class NavTopComponent implements OnInit {
 
-    @Input() showFilter: boolean = true;
+    @Input() showFilter: boolean = false;
     @Input() showTotalFilter: boolean = false;
-    @Input() showReturnIcon: boolean = true;
-    @Input() showHomeIcon: boolean = true;
+    @Input() showReturnIcon: boolean = false;
+    @Input() showHomeIcon: boolean = false;
 
     @Output() changeFilter = new EventEmitter<string>();
 
@@ -26,7 +27,8 @@ export class NavTopComponent implements OnInit {
 
     constructor(private formBuilder: FormBuilder, 
                 public constants: ConstantsService,
-                private languajeCookie: LanguageCookieService ) { }
+                private languajeCookie: LanguageCookieService,
+                private location: Location) { }
 
     public ngOnInit() {
         //this.buildForm();
@@ -35,13 +37,19 @@ export class NavTopComponent implements OnInit {
 
     onChangeFilter() {
         this.filterForm.valueChanges.subscribe(val => {
-            this.changeFilter.emit(val)
+            this.changeFilter.emit(val);
         });
     }
 
     // Traductor
     changeLanguaje($event, language) {
         this.languajeCookie.createCookie(language);
+        return false;
+    }
+
+    goBack() {
+        this.location.back();
+        return false;
     }
 
 }

@@ -1,3 +1,85 @@
 .b-details {
+    background-color: $color-black;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    &__container {
+        height: 100%;
+    }
+
+    &__main {
+        display: flex;
+        flex-wrap: wrap;
+
+        height: 90%;
+        width: 100%;
+
+        font-family: "gameOfThrones";
+    }
+
+    &__scroll {
+        height: 248px;
+        width: 100%;
+
+        margin-top: 20px;
+
+        & .simplebar-content-wrapper {
+            overflow-x: hidden !important;
+        }
+    }
+
+    // ELEMENTOS CENTRALES (IMAGEN Y TÍTULO)
+
+    &__center {
+        display: flex;
+
+        flex-wrap: wrap;
+
+        height: 40%;
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    &__center-image {
+        width: 25%;
+    }
+
+    &__name {
+        text-align: center;
+        margin-top: 30px;
+        font-size: 36px;
+        width: 100%;
+    }
+
+
+    // SECCIÓN INFO (INFERIOR)
+
+    &__info {
+        text-align: center;
+        width: 100%;
+    }
+
+    &__column-name {
+        text-align: center;
+    }
+
+    &__content-image {
+        width: 100%;
+    }
+
+    &__content-element {
+        font-family: "Lato";
+        font-size: 16px;
+        line-height: 120%;
+
+        margin-bottom: 16px;
+    }
+
+
+
     
 }

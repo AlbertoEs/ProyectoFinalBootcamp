@@ -12,12 +12,13 @@ import { NavBottomComponent } from './Components/Subcomponents/nav-bottom/nav-bo
 import { ConstantsService } from './Providers/constants/constants.service';
 import { CookieService } from 'ngx-cookie-service';
 import { LanguageCookieService } from './Providers/languageCookie/language-cookie.service';
-import { TitleCasePipe } from '@angular/common';
+import { TitleCasePipe, DatePipe } from '@angular/common';
 import { ListComponent } from './Components/list/list.component';
 import { FilterPipe } from './Pipes/filter/filter.pipe';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './Components/details/details.component';
 import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
+import { ChronologyComponent } from './Components/chronology/chronology.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
     FilterPipe,
     ListComponent,
     DetailsComponent,
-    ObjectUnifierPipe
+    ObjectUnifierPipe,
+    ChronologyComponent
   ],
   imports: [
     HttpClientModule,
@@ -46,6 +48,8 @@ import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
     TitleCasePipe,
     TraductorPipe,
     FilterPipe,
+    ObjectUnifierPipe,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

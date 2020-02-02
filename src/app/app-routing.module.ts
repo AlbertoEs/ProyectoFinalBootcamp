@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './Components/home/home.component';
 import { ListComponent } from './Components/list/list.component';
 import { DetailsComponent } from './Components/details/details.component';
+import { ChronologyComponent } from './Components/chronology/chronology.component';
 
 
 const routes: Routes = [
@@ -13,19 +14,38 @@ const routes: Routes = [
   },
   {
     path: 'characters',
-    component: ListComponent
-  },
-  {
-    path: 'characters/:name',
-    component: DetailsComponent
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ListComponent
+      },
+      {
+        path: ':name',
+        pathMatch: 'full',
+        component: DetailsComponent
+      }
+    ]
   },
   {
     path: 'houses',
-    component: ListComponent
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        component: ListComponent
+      },
+      {
+        path: ':name',
+        pathMatch: 'full',
+        component: DetailsComponent
+      }
+    ]
   },
   {
-    path: 'houses/:name',
-    component: DetailsComponent
+    path: 'chronology',
+    component: ChronologyComponent,
+    data: { title: 'Chonology' }
   },
   {
     path: '',

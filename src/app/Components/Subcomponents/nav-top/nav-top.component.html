@@ -4,7 +4,7 @@
     <div class="b-nav-top__left">
 
         <div class="b-nav-top__icon-div b-nav-top__return-div" *ngIf="showReturnIcon">
-            <a href="#" class="b-nav-top__return"><i class="icon-arrow-left"></i></a>
+            <a href="#" (click)="goBack()" class="b-nav-top__return"><i class="icon-arrow-left"></i></a>
         </div>
 
         <form class="b-nav-top__filter" *ngIf="showFilter" [ngClass]="showReturnIcon ? '': 'b-nav-top__filter--w100'" [formGroup]="filterForm">

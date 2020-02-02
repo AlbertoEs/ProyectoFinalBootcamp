@@ -23,7 +23,7 @@ export class LanguageCookieService {
   }
 
   createCookie(language: string) {
-    this.cookieService.set(this.consts.CookieName, language, this.nextYear());
+    this.cookieService.set(this.consts.CookieName, language, this.nextYear(), '/');
   }
 
   checkCookie() {

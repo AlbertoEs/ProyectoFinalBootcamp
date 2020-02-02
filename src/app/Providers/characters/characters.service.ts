@@ -16,7 +16,7 @@ export class CharactersService {
     let observable: Observable<any>;
 
     if (!isNullOrUndefined(param))
-      this.apiUrl.concat('/' + param);
+      this.apiUrl = this.apiUrl.concat('/' + param);
 
     observable = this.httpClient.get(this.apiUrl);
     
