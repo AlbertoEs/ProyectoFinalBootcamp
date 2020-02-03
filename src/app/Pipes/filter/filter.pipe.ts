@@ -1,15 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { isNullOrUndefined } from 'util';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
+import { IListUnifier } from 'src/app/interfaces/IListUnifier';
+import { ObjectUnifierPipe } from '../objectUnifier/object-unifier.pipe';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-  constructor(private housesService: HousesService) {}
+  constructor(private objectUnifier: ObjectUnifierPipe) {}
 
   transform(originalArray: any[], args: any[]): any {
+    return null;
+  }
+
+  /**
+   * Filtra un array de un listado (casas o personajes) a partir de los elementos 
+   * pasados por parámetro
+   * @param originalArray 
+   * @param args 
+   */
+  public filterListJson(originalArray: any[], args: any[]): any {
     let returnArray: any[] = [];
 
     let valueToFilter = '';
@@ -27,20 +39,10 @@ export class FilterPipe implements PipeTransform {
     return returnArray;
   }
 
-  
 
+  private filterJson(object: any, valueToFilter: string) {
 
-  filterJson(object: any, valueToFilter: string) {
-
-    interface IElement {
-      name: string;
-      image: string;
-    }
-
-    let objectReturn: IElement = {
-      name: object.name,
-      image: this.housesService.getImage(object)
-    }
+    let objectReturn = this.objectUnifier.unifyLists(object);
 
     if (objectReturn.name.toLowerCase().indexOf(valueToFilter.toLowerCase()) === -1) {
       // El objeto NO concuerda con el filtro

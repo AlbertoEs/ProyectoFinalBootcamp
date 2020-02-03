@@ -1,10 +1,10 @@
 @font-face {
-  font-family: 'gameOfFont';
-  src:  url($font-path + 'GameOfFont/gameOfFont.eot?czl0vx');
-  src:  url($font-path + 'GameOfFont/gameOfFont.eot?czl0vx#iefix') format('embedded-opentype'),
-    url($font-path + 'GameOfFont/gameOfFont.ttf?czl0vx') format('truetype'),
-    url($font-path + 'GameOfFont/gameOfFont.woff?czl0vx') format('woff'),
-    url($font-path + 'GameOfFont/gameOfFont.svg?czl0vx#gameOfFont') format('svg');
+  font-family: 'Game-of-font';
+  src:  url('fonts/Game-of-font.eot?jtqsqf');
+  src:  url('fonts/Game-of-font.eot?jtqsqf#iefix') format('embedded-opentype'),
+    url('fonts/Game-of-font.ttf?jtqsqf') format('truetype'),
+    url('fonts/Game-of-font.woff?jtqsqf') format('woff'),
+    url('fonts/Game-of-font.svg?jtqsqf#Game-of-font') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -12,7 +12,7 @@
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'gameOfFont' !important;
+  font-family: 'Game-of-font' !important;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -209,4 +209,3 @@
   margin-left: -1em;
   color: rgb(255, 75, 85);
 }
-

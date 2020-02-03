@@ -4,17 +4,43 @@
 
         <app-nav-top [showFilter]='false' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true'></app-nav-top>
 
-        <div class="b-chronology__top">
-            <span class="icon-circle">0</span>
-        </div>
-
         <div class="b-chronology__main">
+
             <ngx-simplebar class="b-chronology__scroll">
-                
-                <div class="b-chronology__element"></div>
+
+                <div class="b-chronology__main-container">
+
+                    <div class="b-chronology__top-container">
+                        <div class="b-chronology__circle">0</div>
+
+                        <div class="b-chronology__arrow">
+                            <span class="icon-arrow-down"></span>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="b-chronology__element-container">
+                    
+                        <div class="b-chronology__element" *ngFor="let character of characterList">
+                            <div class="b-chronology__age">{{ character.age }}</div>
+
+                            <div class="b-chronology__name">{{ character.name }}</div>
+
+                            <div class="b-chronology__img-container">
+                                <img class="b-chronology__img" src="{{ character.image }}" />
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
 
             </ngx-simplebar>
+
         </div>
+
+        <app-nav-bottom></app-nav-bottom>
+
     </div>
 
     

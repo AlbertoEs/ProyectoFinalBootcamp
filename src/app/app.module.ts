@@ -19,6 +19,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { DetailsComponent } from './Components/details/details.component';
 import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
 import { ChronologyComponent } from './Components/chronology/chronology.component';
+import { ChronologyPipe } from './Pipes/chronology/chronology.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ChronologyComponent } from './Components/chronology/chronology.componen
     ListComponent,
     DetailsComponent,
     ObjectUnifierPipe,
-    ChronologyComponent
+    ChronologyComponent,
+    ChronologyPipe
   ],
   imports: [
     HttpClientModule,

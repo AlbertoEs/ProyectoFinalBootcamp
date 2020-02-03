@@ -4,6 +4,8 @@ import { ValueTransformer } from '@angular/compiler/src/util';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
 import { DatePipe } from '@angular/common';
+import { IListUnifier } from 'src/app/interfaces/IListUnifier';
+import { IDetailsUnifier } from 'src/app/interfaces/IDetailsUnifier';
 
 @Pipe({
   name: 'objectUnifier'
@@ -11,11 +13,37 @@ import { DatePipe } from '@angular/common';
 export class ObjectUnifierPipe implements PipeTransform {
 
   constructor(private consts: ConstantsService,
-              private housesService: HousesService,
+              //private housesService: HousesService,
               private datePipe: DatePipe) { }
 
   transform(value: any, args: any): any {
-    
+    return null;
+  }
+
+  /**
+   * Método que unifica los objetos devueltos por las API de personajes y casas
+   * para devolver un único objeto para pintar en el componente list
+   * @param object 
+   */
+  public unifyLists(object: any) {
+
+    let objectReturn: IListUnifier = {
+      name: object.name,
+      age: !isNullOrUndefined(object.age) ? object.age.age : 0,
+      image: this.getCharacterOrHouseImage(object)
+    }
+
+    return objectReturn;
+  }
+
+  /**
+   * Método que unifica los objetos devueltos por las API de personajes y casas
+   * para devolver un único objeto para pintar en el componente details
+   * @param value 
+   * @param args 
+   */
+  public unifyDetails(value: any, args: any) {
+
     if (!isNullOrUndefined(args) && !isNullOrUndefined(args.page)) {
 
       const page = args.page;
@@ -31,12 +59,30 @@ export class ObjectUnifierPipe implements PipeTransform {
     }
   }
 
+  /**
+   * Método que a partir de un objeto de casas o de personajes
+   * devuelve su imagen en caso de que exista. Si no existe, devuelve una imagen predefinida
+   * @param object 
+   */
+  public getCharacterOrHouseImage(object: any): string {
+
+    let image = 'assets/img/escudo-espania.png';
+
+    if (!isNullOrUndefined(object)) {
+      
+      if (!isNullOrUndefined(object.logoURL))
+        image = object.logoURL;
+      else if (!isNullOrUndefined(object.image))
+        image = object.image;
+    }
+
+    return image;
+  }
 
 
+  private fillObject(value: any, page: string, houseData: any) {
 
-  fillObject(value: any, page: string, houseData: any) {
-
-    let returnObject = {
+    let returnObject: IDetailsUnifier = {
       image: '',
       title: '',
       col1: {
@@ -63,10 +109,9 @@ export class ObjectUnifierPipe implements PipeTransform {
         title: '',
         content: []
       }
-    }
+    };
 
-
-    returnObject.image        = this.housesService.getImage(value);
+    returnObject.image        = this.getCharacterOrHouseImage(value);
     returnObject.title        = value.name;
 
     returnObject.col1.title   = (page === this.consts.Characters) ? 'house' : 'sigil';
@@ -88,8 +133,8 @@ export class ObjectUnifierPipe implements PipeTransform {
 
 
 
-  getHouseImage(houseData: any) : any {
-    const imageSrc = this.housesService.getImage(houseData[0]);
+  private getHouseImage(houseData: any): any {
+    const imageSrc = this.getCharacterOrHouseImage(houseData[0]);
 
     return `<img src="${imageSrc}" alt="${!isNullOrUndefined(houseData[0]) && !isNullOrUndefined(houseData[0].name) ? houseData[0].name : 'No house data'}" class="b-details__content-image" />`;
   }

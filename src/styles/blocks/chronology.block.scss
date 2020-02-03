@@ -1,0 +1,153 @@
+.b-chronology {
+
+    background-color: $color-black;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+
+    &__container {
+        height: 100%;
+    }
+
+    &__main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: center;
+        justify-content: center;
+
+        height: 80%;
+        width: 100%;
+
+        font-family: "gameOfThrones";
+    }
+
+    &__scroll {
+        height: 100%;
+        width: 100%;
+
+        & .simplebar-content-wrapper {
+            overflow-x: hidden !important;
+        }
+    }
+
+    &__main-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-flow: center;
+        justify-content: center;
+    }
+
+    // TOP
+
+    &__top-container {
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+
+        width: 100%;
+
+        justify-content: center;
+    }
+
+    &__circle {
+        margin-top: 20px;
+
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+
+        border: 2px solid $color-white;
+        border-radius: 50%;
+
+        height: 50px;
+        width: 50px;
+
+    }
+
+    &__arrow {
+
+        height: 42px;
+        width: 100%;
+
+        & span {
+            font-size: 42px;
+        }
+    }
+
+
+    // ELEMENT
+
+    &__element-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        //align-items: flex-start;
+
+        height: 100%;
+        width: 80%;
+    }
+
+    &__element {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: flex-start;
+
+        vertical-align: top;
+
+        height: 26vh;
+        width: 40%;
+
+        padding-top: 10px;
+
+        border-top: 2px solid $color-white;
+
+        &:nth-child(odd) { // Izquierdo
+            border-right: 2px solid $color-white;
+        }
+
+        &:not(:first-child):nth-child(odd) { // Izquierdo
+            transform: translate(0,50px);
+        }
+
+        /*&:nth-child(even) { // Derecho
+            border-left: 1px solid $color-white;
+        }*/
+
+        &:nth-child(2) { // El primer elemento derecho
+            margin-top: 13vh;
+        }
+    }
+
+    &__age {
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    &__name {
+        margin-top: 14px;
+        width: 100%;
+        font-size: 20px;
+        text-align: center;
+    }
+
+    &__img-container {
+
+        margin-top: 14px;
+        border-radius: 50%;
+        overflow: hidden;
+        height: 10vh;
+        width: 10vh;
+
+    }
+
+    &__img {
+        
+        width: 100%;
+    }
+}

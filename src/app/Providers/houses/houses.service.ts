@@ -22,20 +22,4 @@ export class HousesService {
     
     return observable;   
   }
-
-
-  getImage(object: any) {
-
-    let image = '../../../assets/img/escudo-espania.png';
-
-    if (!isNullOrUndefined(object)) {
-      
-      if (!isNullOrUndefined(object.logoURL))
-        image = object.logoURL;
-      else if (!isNullOrUndefined(object.image))
-        image = object.image;
-    }
-
-    return image;
-  }
 }

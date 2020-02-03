@@ -55,7 +55,7 @@ export class DetailsComponent implements OnInit {
         this.housesService.getData(data.house).subscribe(
           (houseData) => {
             this.args.houseData = houseData;
-            this.details = this.objectUnifier.transform(data, this.args);
+            this.details = this.objectUnifier.unifyDetails(data, this.args);
           }
         );
       }
@@ -67,7 +67,7 @@ export class DetailsComponent implements OnInit {
 
     this.housesService.getData(this.paramName).subscribe(
       (data) => {
-        this.details = this.objectUnifier.transform(data[0], this.args);
+        this.details = this.objectUnifier.unifyDetails(data[0], this.args);
       }
     );
   }

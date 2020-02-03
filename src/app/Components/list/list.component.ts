@@ -49,7 +49,7 @@ export class ListComponent implements OnInit {
 
     this.characterService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.transform(data, filter);
+        this.elementsList = this.filter.filterListJson(data, filter);
       }   
     );
 
@@ -60,7 +60,7 @@ export class ListComponent implements OnInit {
 
     this.housesService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.transform(data, filter);
+        this.elementsList = this.filter.filterListJson(data, filter);
       }   
     );
 
