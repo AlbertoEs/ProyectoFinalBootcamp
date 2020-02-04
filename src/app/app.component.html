@@ -1,2 +1,13 @@
-<router-outlet></router-outlet>
+<section class="{{ bemClass }}">
 
+    <div class="container {{ bemClass + '__container' }}">
+
+        <app-nav-top [showFilter]='showFilter' [showTotalFilter]='showTotalFilter' [showReturnIcon]='showReturnIcon' [showHomeIcon]='showHomeIcon'></app-nav-top>
+
+        <router-outlet></router-outlet>
+
+        <app-nav-bottom *ngIf="showNavBottom"></app-nav-bottom>
+    
+    </div>
+
+</section>

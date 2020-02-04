@@ -1,49 +1,34 @@
-<div class="b-chronology">
+<div class="b-chronology__main">
 
-    <div class="container b-chronology__container">
+    <ngx-simplebar class="b-chronology__scroll">
 
-        <app-nav-top [showFilter]='false' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true'></app-nav-top>
+        <div class="b-chronology__main-container">
 
-        <div class="b-chronology__main">
+            <div class="b-chronology__top-container">
+                <div class="b-chronology__circle">0</div>
 
-            <ngx-simplebar class="b-chronology__scroll">
+                <div class="b-chronology__arrow">
+                    <span class="icon-arrow-down"></span>
+                </div>
+            </div>
 
-                <div class="b-chronology__main-container">
+            
 
-                    <div class="b-chronology__top-container">
-                        <div class="b-chronology__circle">0</div>
+            <div class="b-chronology__element-container">
+            
+                <div class="b-chronology__element" *ngFor="let character of characterList">
+                    <div class="b-chronology__age">{{ character.age }}</div>
 
-                        <div class="b-chronology__arrow">
-                            <span class="icon-arrow-down"></span>
-                        </div>
-                    </div>
+                    <div class="b-chronology__name">{{ character.name }}</div>
 
-                    
-
-                    <div class="b-chronology__element-container">
-                    
-                        <div class="b-chronology__element" *ngFor="let character of characterList">
-                            <div class="b-chronology__age">{{ character.age }}</div>
-
-                            <div class="b-chronology__name">{{ character.name }}</div>
-
-                            <div class="b-chronology__img-container">
-                                <img class="b-chronology__img" src="{{ character.image }}" />
-                            </div>
-                        </div>
-
+                    <div class="b-chronology__img-container">
+                        <img class="b-chronology__img" src="{{ character.image }}" />
                     </div>
                 </div>
 
-            </ngx-simplebar>
-
+            </div>
         </div>
 
-        <app-nav-bottom></app-nav-bottom>
-
-    </div>
-
-    
-
+    </ngx-simplebar>
 
 </div>

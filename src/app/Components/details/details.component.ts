@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ObjectUnifierPipe } from 'src/app/Pipes/objectUnifier/object-unifier.pipe';
 import { CharactersService } from 'src/app/Providers/characters/characters.service';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
+import { IAppInputVar } from 'src/app/interfaces/IAppInputVar';
 
 @Component({
   selector: 'app-details',
@@ -18,6 +19,8 @@ export class DetailsComponent implements OnInit {
   public paramName: string;
 
   private args: any;
+
+  @Output() navVariables = new EventEmitter<IAppInputVar>();
 
   constructor(public consts: ConstantsService,
               private router: Router,

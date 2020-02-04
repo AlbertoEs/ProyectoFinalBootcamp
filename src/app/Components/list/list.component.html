@@ -1,30 +1,18 @@
-<section class="b-list">
+<div class="b-list__main">
+    <ngx-simplebar class="b-list__scroll">
 
-    <div class="container b-list__container">
+        <div class="row">
+            <div class="col-6 col-sm-4 col-md-3 col-xl-2 b-list__img-div" *ngFor="let element of elementsList">
 
-        <app-nav-top [showFilter]='true' [showTotalFilter]='false' [showReturnIcon]='false' [showHomeIcon]='true' (changeFilter)='getFilterValues($event)'></app-nav-top>
+                <a href="{{router.url + '/' + element.name}}">
+                    <figure class="b-list__figure">
+                        <img class="b-list__img" src="{{element.image}}" alt="{{element.name}}">
+                        <figcaption class="b-list__figcaption">{{element.name}}</figcaption>
+                    </figure>
+                </a>
 
-        <div class="b-list__main">
-            <ngx-simplebar class="b-list__scroll">
-
-                <div class="row">
-                    <div class="col-6 col-sm-4 col-md-3 col-xl-2 b-list__img-div" *ngFor="let element of elementsList">
-
-                        <a href="{{router.url + '/' + element.name}}">
-                            <figure class="b-list__figure">
-                                <img class="b-list__img" src="{{element.image}}" alt="{{element.name}}">
-                                <figcaption class="b-list__figcaption">{{element.name}}</figcaption>
-                            </figure>
-                        </a>
-
-                    </div>
-                </div>
-
-            </ngx-simplebar>
+            </div>
         </div>
 
-        <app-nav-bottom></app-nav-bottom>
-        
-    </div>
-
-</section>
+    </ngx-simplebar>
+</div>

@@ -1,84 +1,76 @@
-<div class="b-details">
+<div class="b-details__main">
+    <div class="b-details__center">
+        <img src="{{ details.image }}" class="b-details__center-image" alt="Main image" />
 
-    <div class="container b-details__container">
+        <div class="b-details__name">{{ details.title }}</div>
+    </div>
 
-        <app-nav-top [showFilter]='false' [showTotalFilter]='false' [showReturnIcon]='true' [showHomeIcon]='true'></app-nav-top>
+    <div class="b-details__info row">
 
-        <div class="b-details__main">
-            <div class="b-details__center">
-                <img src="{{ details.image }}" class="b-details__center-image" alt="Main image" />
+        <!-- COLUMNA 1 -->
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col1.title | traductor: consts.Capitalized }}</h2>
 
-                <div class="b-details__name">{{ details.title }}</div>
-            </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <div *ngIf="typeOfDetail === consts.Characters" [innerHTML]="details.col1.content"></div>
 
-            <div class="b-details__info row">
-
-                <!-- COLUMNA 1 -->
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col1.title | traductor: consts.Capitalized }}</h2>
-
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <div *ngIf="typeOfDetail === consts.Characters" [innerHTML]="details.col1.content"></div>
-
-                            <div *ngIf="typeOfDetail === consts.Houses">
-                                <li class="b-details__content-element" *ngFor="let element of details.col1.content">{{ element }}</li>
-                            </div>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
+                    <div *ngIf="typeOfDetail === consts.Houses">
+                        <li class="b-details__content-element" *ngFor="let element of details.col1.content">{{ element }}</li>
+                    </div>
+                </ul>
+            </ngx-simplebar>
+        </div>
 
 
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col2.title | traductor: consts.Capitalized }}</h2>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col2.title | traductor: consts.Capitalized }}</h2>
 
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <li class="b-details__content-element" *ngFor="let element of details.col2.content">{{ element }}</li>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <li class="b-details__content-element" *ngFor="let element of details.col2.content">{{ element }}</li>
+                </ul>
+            </ngx-simplebar>
+        </div>
 
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col3.title | traductor: consts.Capitalized }}</h2>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col3.title | traductor: consts.Capitalized }}</h2>
 
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <li class="b-details__content-element" *ngFor="let element of details.col3.content">{{ element }}</li>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <li class="b-details__content-element" *ngFor="let element of details.col3.content">{{ element }}</li>
+                </ul>
+            </ngx-simplebar>
+        </div>
 
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col4.title | traductor: consts.Capitalized }}</h2>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col4.title | traductor: consts.Capitalized }}</h2>
 
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <li class="b-details__content-element" *ngFor="let element of details.col4.content">{{ element }}</li>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <li class="b-details__content-element" *ngFor="let element of details.col4.content">{{ element }}</li>
+                </ul>
+            </ngx-simplebar>
+        </div>
 
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col5.title | traductor: consts.Capitalized }}</h2>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col5.title | traductor: consts.Capitalized }}</h2>
 
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <li class="b-details__content-element" *ngFor="let element of details.col5.content">{{ element }}</li>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <li class="b-details__content-element" *ngFor="let element of details.col5.content">{{ element }}</li>
+                </ul>
+            </ngx-simplebar>
+        </div>
 
-                <div class="b-details__column col-6 col-md-4 col-xl-2">
-                    <h2 class="b-details__column-name">{{ details.col6.title | traductor: consts.Capitalized }}</h2>
+        <div class="b-details__column col-6 col-md-4 col-xl-2">
+            <h2 class="b-details__column-name">{{ details.col6.title | traductor: consts.Capitalized }}</h2>
 
-                    <ngx-simplebar class="b-details__scroll">
-                        <ul class="b-details__column-content">
-                            <li class="b-details__content-element" *ngFor="let element of details.col6.content">{{ element }}</li>
-                        </ul>
-                    </ngx-simplebar>
-                </div>
-            </div>
+            <ngx-simplebar class="b-details__scroll">
+                <ul class="b-details__column-content">
+                    <li class="b-details__content-element" *ngFor="let element of details.col6.content">{{ element }}</li>
+                </ul>
+            </ngx-simplebar>
         </div>
     </div>
 </div>

@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { IAppInputVar } from 'src/app/interfaces/IAppInputVar';
 
 @Component({
 	selector: 'app-home',
@@ -8,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-	constructor() { }
+	/*@Output() navVariables = new EventEmitter<IAppInputVar>();
 
+	constructor() {
+		this.navVariables.emit({
+			showFilter: false,
+			showTotalFilter: false, 
+			showReturnIcon: false,
+			showHomeIcon: false,
+			showNavBottom: true,
+			bemClass: 'b-home'
+		});
+	}
+	*/
 	ngOnInit() {
+		
 	}
 
 }

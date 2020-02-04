@@ -10,25 +10,36 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    data: { title: 'Home' }
+    data: { 
+      title: 'Home',
+      page: 'home'
+    }
   },
   {
     path: 'characters',
+    data: {
+      page: 'charactersList',
+      pageDetails: 'charactersDetails'
+    },
     children: [
       {
         path: '',
         pathMatch: 'full',
-        component: ListComponent
+        component: ListComponent,
       },
       {
         path: ':name',
         pathMatch: 'full',
-        component: DetailsComponent
+        component: DetailsComponent,
       }
     ]
   },
   {
     path: 'houses',
+    data: {
+      page: 'housesList',
+      pageDetails: 'housesDetails'
+    },
     children: [
       {
         path: '',
@@ -45,12 +56,19 @@ const routes: Routes = [
   {
     path: 'chronology',
     component: ChronologyComponent,
-    data: { title: 'Chonology' }
+    data: { 
+      title: 'Chonology',
+      page: 'chronology'
+    }
   },
   {
     path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
+    pathMatch: 'full',
+    data: { 
+      title: 'Home',
+      page: 'home'
+    }
   }
 ];
 

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ConstantsService } from 'src/app/Providers/constants/constants.service';
 import { CharactersService } from 'src/app/Providers/characters/characters.service';
 import { FilterPipe } from 'src/app/Pipes/filter/filter.pipe';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
+import { IAppInputVar } from 'src/app/interfaces/IAppInputVar';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +16,8 @@ export class ListComponent implements OnInit {
   private typeOfList: string; // Characters o Houses
   public elementsList = [];
 
+  @Output() navVariables = new EventEmitter<IAppInputVar>();
+
   constructor(public consts: ConstantsService,
               private characterService: CharactersService,
               private housesService: HousesService,
@@ -25,6 +28,15 @@ export class ListComponent implements OnInit {
       this.typeOfList = consts.Characters;
     else
       this.typeOfList = consts.Houses;
+
+    this.navVariables.emit({
+			showFilter: true,
+			showTotalFilter: false, 
+			showReturnIcon: false,
+			showHomeIcon: true,
+			showNavBottom: true,
+      bemClass: 'b-list'
+		});
   }
 
 
