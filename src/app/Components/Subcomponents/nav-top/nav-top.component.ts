@@ -3,6 +3,7 @@ import { ConstantsService } from 'src/app/Providers/constants/constants.service'
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LanguageCookieService } from 'src/app/Providers/languageCookie/language-cookie.service';
 import { Location } from '@angular/common';
+import { FilterService } from 'src/app/Providers/filter/filter.service';
 
 @Component({
   selector: 'app-nav-top',
@@ -23,12 +24,12 @@ export class NavTopComponent implements OnInit {
         homeFilter: new FormControl(''),
         ageFilter: new FormControl('')
     });
-    
 
     constructor(private formBuilder: FormBuilder, 
                 public constants: ConstantsService,
                 private languajeCookie: LanguageCookieService,
-                private location: Location) { }
+                private location: Location,
+                private filterService: FilterService) { }
 
     public ngOnInit() {
         //this.buildForm();
@@ -37,7 +38,11 @@ export class NavTopComponent implements OnInit {
 
     onChangeFilter() {
         this.filterForm.valueChanges.subscribe(val => {
-            this.changeFilter.emit(val);
+            //subject.next(new Date());
+            //this.changeFilter.emit(val);
+            this.filterService.getFilter().subscribe(
+                
+            );
         });
     }
 

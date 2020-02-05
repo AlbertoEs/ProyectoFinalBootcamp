@@ -99,7 +99,7 @@
 
         vertical-align: top;
 
-        height: 26vh;
+        height: 26vw;
         width: 40%;
 
         padding-top: 10px;
@@ -111,15 +111,28 @@
         }
 
         &:not(:first-child):nth-child(odd) { // Izquierdo
-            transform: translate(0,50px);
+            transform: translate(0,-13vw);
         }
 
-        /*&:nth-child(even) { // Derecho
-            border-left: 1px solid $color-white;
-        }*/
-
         &:nth-child(2) { // El primer elemento derecho
-            margin-top: 13vh;
+            margin-top: 13vw;
+        }
+
+        @media screen and (max-width: $break-md) {
+            width: 80%;
+            height: 32vw;
+
+            &:nth-child(odd) { // Izquierdo
+                border-right: 0px;
+            }
+
+            &:not(:first-child):nth-child(odd) { // Izquierdo
+                transform: translate(0,0);
+            }
+
+            &:nth-child(2) { // El primer elemento derecho
+                margin-top: 0;
+            }
         }
     }
 
