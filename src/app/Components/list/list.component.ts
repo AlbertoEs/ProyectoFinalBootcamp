@@ -5,6 +5,7 @@ import { FilterPipe } from 'src/app/Pipes/filter/filter.pipe';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HousesService } from 'src/app/Providers/houses/houses.service';
 import { IAppInputVar } from 'src/app/interfaces/IAppInputVar';
+import { FilterService } from 'src/app/Providers/filter/filter.service';
 
 @Component({
   selector: 'app-list',
@@ -15,6 +16,7 @@ export class ListComponent implements OnInit {
 
   private typeOfList: string; // Characters o Houses
   public elementsList = [];
+  private filterValue: string;
 
   @Output() navVariables = new EventEmitter<IAppInputVar>();
 
@@ -22,7 +24,8 @@ export class ListComponent implements OnInit {
               private characterService: CharactersService,
               private housesService: HousesService,
               private filter: FilterPipe,
-              public router: Router) 
+              public router: Router,
+              private filterService: FilterService) 
   {
     if (this.router.url.indexOf('characters') !== -1) 
       this.typeOfList = consts.Characters;
@@ -41,38 +44,41 @@ export class ListComponent implements OnInit {
 
 
   ngOnInit() {
-    this.drawElements(null);
+    this.getFilterValues(); 
+    this.drawElements();
   }
 
-  getFilterValues(filter: any) {
-    console.log(filter);
-    this.drawElements(filter);
+  getFilterValues() {
+    this.filterService.getFilter().subscribe(filter => {
+      console.log(filter);
+      this.filterValue = filter;
+    });
   }
 
-  drawElements (filter: any) {
+  drawElements () {
     if (this.typeOfList === this.consts.Characters) {
-      this.getCharacters(filter);
+      this.getCharacters();
     } else if (this.typeOfList === this.consts.Houses) {
-      this.getHouses(filter);
+      this.getHouses();
     }
   }
 
-  getCharacters(filter: any) {
+  getCharacters() {
 
     this.characterService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.filterListJson(data, filter);
+        this.elementsList = this.filter.filterListJson(data, this.filterValue);
       }   
     );
 
   }
 
 
-  getHouses(filter: any) {
+  getHouses() {
 
     this.housesService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.filterListJson(data, filter);
+        this.elementsList = this.filter.filterListJson(data, this.filterValue);
       }   
     );
 

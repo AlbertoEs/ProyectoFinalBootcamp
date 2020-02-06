@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { LanguageCookieService } from 'src/app/Providers/languageCookie/language-cookie.service';
 import { Location } from '@angular/common';
 import { FilterService } from 'src/app/Providers/filter/filter.service';
+import { ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-nav-top',
@@ -40,9 +41,7 @@ export class NavTopComponent implements OnInit {
         this.filterForm.valueChanges.subscribe(val => {
             //subject.next(new Date());
             //this.changeFilter.emit(val);
-            this.filterService.getFilter().subscribe(
-                
-            );
+            this.filterService.setFilter(val.searchFilter);
         });
     }
 

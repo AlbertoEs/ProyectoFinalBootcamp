@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,13 +8,13 @@ export class FilterService {
 
   constructor() { }
 
-  private _filterValue: ReplaySubject<any> = new ReplaySubject(1);
+  private _filterValue: ReplaySubject<string> = new ReplaySubject(1);
 
-  get getFilterValue() {
-    return this._fileDetail;
+  get getFilter() {
+    return this._filterValue;
   }
 
-  public setFilterValue(filter: any) {
-    this._fileDetail = filter;
+  setFilter(filter: string) {
+    this._filterValue.next(filter);
   }
 }
