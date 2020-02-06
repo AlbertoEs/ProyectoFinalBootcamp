@@ -53,7 +53,8 @@ import { FilterService } from './Providers/filter/filter.service';
     TraductorPipe,
     FilterPipe,
     ObjectUnifierPipe,
-    DatePipe
+    DatePipe,
+    ChronologyPipe
   ],
   bootstrap: [AppComponent]
 })

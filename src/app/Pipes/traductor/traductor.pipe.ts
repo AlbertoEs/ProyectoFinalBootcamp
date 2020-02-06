@@ -5,11 +5,12 @@ import { ConstantsService } from '../../Providers/constants/constants.service.js
 import { TitleCasePipe } from '@angular/common';
 
 @Pipe({
-	name: 'traductor'
+	name: 'traductor',
+	pure: false
 })
 export class TraductorPipe implements PipeTransform {
 
-	private language: string;
+	public language: string;
 
 	constructor(private languageService: LanguageCookieService, 
 				private consts: ConstantsService,
@@ -38,7 +39,6 @@ export class TraductorPipe implements PipeTransform {
 
 		try {
 
-			// Obtenemos el idioma con el que el usuario quiere que se muestre la página
 			this.language = this.languageService.getValue();
 
 			// Búsqueda del valor en el idioma deseado en el Json

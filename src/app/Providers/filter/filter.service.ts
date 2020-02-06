@@ -8,13 +8,13 @@ export class FilterService {
 
   constructor() { }
 
-  private _filterValue: ReplaySubject<string> = new ReplaySubject(1);
+  private _filterValue: ReplaySubject<any> = new ReplaySubject(1);
 
   get getFilter() {
     return this._filterValue;
   }
 
-  setFilter(filter: string) {
+  setFilter(filter: any) {
     this._filterValue.next(filter);
   }
 }

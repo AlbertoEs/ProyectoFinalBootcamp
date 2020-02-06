@@ -16,14 +16,13 @@ export class ListComponent implements OnInit {
 
   private typeOfList: string; // Characters o Houses
   public elementsList = [];
-  private filterValue: string;
 
   @Output() navVariables = new EventEmitter<IAppInputVar>();
 
   constructor(public consts: ConstantsService,
               private characterService: CharactersService,
               private housesService: HousesService,
-              private filter: FilterPipe,
+              private filterPipe: FilterPipe,
               public router: Router,
               private filterService: FilterService) 
   {
@@ -49,36 +48,36 @@ export class ListComponent implements OnInit {
   }
 
   getFilterValues() {
-    this.filterService.getFilter().subscribe(filter => {
+    this.filterService.getFilter.subscribe(filter => {
       console.log(filter);
-      this.filterValue = filter;
+      this.getCharacters(filter);
     });
   }
 
   drawElements () {
     if (this.typeOfList === this.consts.Characters) {
-      this.getCharacters();
+      this.getCharacters(null);
     } else if (this.typeOfList === this.consts.Houses) {
-      this.getHouses();
+      this.getHouses(null);
     }
   }
 
-  getCharacters() {
+  getCharacters(filterValue: any) {
 
     this.characterService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.filterListJson(data, this.filterValue);
+        this.elementsList = this.filterPipe.filterListJson(data, filterValue);
       }   
     );
 
   }
 
 
-  getHouses() {
+  getHouses(filterValue: any) {
 
     this.housesService.getData().subscribe(
       (data) => {
-        this.elementsList = this.filter.filterListJson(data, this.filterValue);
+        this.elementsList = this.filterPipe.filterListJson(data, filterValue);
       }   
     );
 

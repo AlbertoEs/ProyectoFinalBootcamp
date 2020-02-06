@@ -30,3 +30,11 @@ a:hover {
     color: $color-grey-80;
     text-decoration: none !important;
 }
+
+.simplebar-track.simplebar-vertical .simplebar-scrollbar:before {
+    background-color: $color-grey-95;
+}
+
+.simplebar-track.simplebar-horizontal {
+    display: none;
+}

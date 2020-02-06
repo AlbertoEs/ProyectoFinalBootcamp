@@ -5,6 +5,7 @@ import { LanguageCookieService } from 'src/app/Providers/languageCookie/language
 import { Location } from '@angular/common';
 import { FilterService } from 'src/app/Providers/filter/filter.service';
 import { ReplaySubject } from 'rxjs';
+import { TraductorPipe } from 'src/app/Pipes/traductor/traductor.pipe';
 
 @Component({
   selector: 'app-nav-top',
@@ -30,7 +31,8 @@ export class NavTopComponent implements OnInit {
                 public constants: ConstantsService,
                 private languajeCookie: LanguageCookieService,
                 private location: Location,
-                private filterService: FilterService) { }
+                private filterService: FilterService,
+                private traductorPipe: TraductorPipe) { }
 
     public ngOnInit() {
         //this.buildForm();
@@ -41,12 +43,13 @@ export class NavTopComponent implements OnInit {
         this.filterForm.valueChanges.subscribe(val => {
             //subject.next(new Date());
             //this.changeFilter.emit(val);
-            this.filterService.setFilter(val.searchFilter);
+            this.filterService.setFilter(val);
         });
     }
 
     // Traductor
     changeLanguaje($event, language) {
+        //this.traductorPipe.language = language;
         this.languajeCookie.createCookie(language);
         return false;
     }

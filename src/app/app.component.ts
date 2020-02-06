@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 import { isNullOrUndefined } from 'util';
 
@@ -8,6 +8,7 @@ import { isNullOrUndefined } from 'util';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
     title = 'Game Of Front';
 
     public showFilter: boolean = false;
