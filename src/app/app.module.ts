@@ -21,10 +21,12 @@ import { ObjectUnifierPipe } from './Pipes/objectUnifier/object-unifier.pipe';
 import { ChronologyComponent } from './Components/chronology/chronology.component';
 import { ChronologyPipe } from './Pipes/chronology/chronology.pipe';
 import { FilterService } from './Providers/filter/filter.service';
+import { LoaderComponent } from './Components/Subcomponents/loader/loader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoaderComponent,
     HomeComponent,
     NavTopComponent,
     NavBottomComponent,

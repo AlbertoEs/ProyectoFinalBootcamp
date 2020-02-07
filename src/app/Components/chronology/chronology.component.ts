@@ -58,6 +58,8 @@ export class ChronologyComponent implements OnInit {
 
   getCharacters(filter: any) {
 
+    document.querySelector('.lds-ellipsis__container').classList.add("show-loader");
+
     this.characterService.getData().subscribe(
       (data) => {
         this.characterList = this.filterPipe.filterListJson(data, filter);
@@ -69,6 +71,8 @@ export class ChronologyComponent implements OnInit {
           this.characterList = this.chronologyPipe.sortDesc(this.characterList);
           this.minEdad = this.characterList[0].age;
         }
+
+        document.querySelector('.lds-ellipsis__container').classList.add("hide-loader");
       }   
     );
 

@@ -1,0 +1,21 @@
+.hide-loader {
+    //animation-name: hideLoaderAnimation;
+    //animation-duration: 1s;
+
+    //@extend: forwards;
+    display: none;
+}
+
+@keyframes hideLoaderAnimation {
+    0% {
+        background-color: rgba($color: $color-black, $alpha: .4);
+        visibility: 1;
+    }
+    99% {
+        background-color: rgba($color: $color-black, $alpha: 0);
+        visibility: 0;
+    }
+    100% {
+        display: none;
+    }
+}

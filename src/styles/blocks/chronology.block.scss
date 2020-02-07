@@ -17,6 +17,8 @@
         flex-flow: center;
         justify-content: center;
 
+        position: relative;
+
         height: 80%;
         width: 100%;
 
@@ -34,6 +36,7 @@
 
     &__main-container {
         display: flex;
+        
         flex-wrap: wrap;
         flex-flow: center;
         justify-content: center;

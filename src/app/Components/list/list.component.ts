@@ -44,21 +44,22 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.getFilterValues(); 
-    this.drawElements();
+    this.drawElements(null);
   }
 
   getFilterValues() {
     this.filterService.getFilter.subscribe(filter => {
       console.log(filter);
-      this.getCharacters(filter);
+      this.drawElements (filter);
     });
   }
 
-  drawElements () {
+  drawElements (filter: any) {
+    document.querySelector('.lds-ellipsis__container').classList.add("show-loader");
     if (this.typeOfList === this.consts.Characters) {
-      this.getCharacters(null);
+      this.getCharacters(filter);
     } else if (this.typeOfList === this.consts.Houses) {
-      this.getHouses(null);
+      this.getHouses(filter);
     }
   }
 
@@ -67,6 +68,7 @@ export class ListComponent implements OnInit {
     this.characterService.getData().subscribe(
       (data) => {
         this.elementsList = this.filterPipe.filterListJson(data, filterValue);
+        document.querySelector('.lds-ellipsis__container').classList.add("hide-loader");
       }   
     );
 
@@ -78,6 +80,7 @@ export class ListComponent implements OnInit {
     this.housesService.getData().subscribe(
       (data) => {
         this.elementsList = this.filterPipe.filterListJson(data, filterValue);
+        document.querySelector('.lds-ellipsis__container').classList.add("hide-loader");
       }   
     );
 
